@@ -89,10 +89,14 @@ public class Simulation {
                 Town ta2 = towns.get(townA);
                 Town tb2 = towns.get(arg);
                 Railway existing = getRailway(ta2, tb2);
-                if (existing != null && existing.getState().isSingle()) {
+                // Only allow duplication if there is an existing, completed single-track railway
+                if (existing != null
+                        && existing.getState() instanceof SingleTrackCompleted) {
                     existing.setState(new DualTrackUnderConstruction());
                     existing.decrementConstructionDays(); // start construction
+                    messages.add(msg);
                 }
+                // else: ignore duplication request!
                 break;
             default: return;
         }

@@ -1,8 +1,10 @@
 graph Towns {
-    Stoney_Sibholm
-    Old_Pebblefield
-    Old_Eylock
-    Little_Dentwych
-    Old_Eylock -- Old_Pebblefield [color="black:black"]
-    Old_Eylock -- Stoney_Sibholm [style="dashed"]
+    Drowsstock
+    Much_Gallmond
+    Bury_Dentcester
+    Kingston_Grosham
+    Notkirk
+    Drowsstock -- Much_Gallmond [style="dashed",color="black:black"]
+    Notkirk -- Much_Gallmond 
+    Bury_Dentcester -- Notkirk [style="dashed"]
 }
