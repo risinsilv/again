@@ -1,0 +1,8 @@
+graph Towns {
+    Stoney_Sibholm
+    Old_Pebblefield
+    Old_Eylock
+    Little_Dentwych
+    Old_Eylock -- Old_Pebblefield [color="black:black"]
+    Old_Eylock -- Stoney_Sibholm [style="dashed"]
+}
