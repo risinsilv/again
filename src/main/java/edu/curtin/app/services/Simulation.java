@@ -22,30 +22,38 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Simulation {
-    private final Map<String, Town> towns = new HashMap<>();
-    private final List<Railway> railways = new ArrayList<>();
-    private final TownFactory townFactory;
-    private final RailwayFactory railwayFactory;
-    private final ConsoleView view;
-    private final DotFileWriter writer;
-    private final TownsInput townsInput;
-    private final Logger logger;
-    private int day = 0;
-
-    public Simulation(TownFactory tf, RailwayFactory rf,ConsoleView view,DotFileWriter writer, TownsInput ti,Logger logger) {
-        this.townFactory = tf;
-        this.railwayFactory = rf;
-        this.view = view;
-        this.writer = writer;
-        this.townsInput = ti;
-        this.logger = logger;
-    }
-
+//public class Simulation {
+//    private final Map<String, Town> towns = new HashMap<>();
+//    private final List<Railway> railways = new ArrayList<>();
+//    private final TownFactory townFactory;
+//    private final RailwayFactory railwayFactory;
+//    private final ConsoleView view;
+//    private final DotFileWriter writer;
+//    private final TownsInput townsInput;
+//    private final Logger logger;
+//    private int day = 0;
+//
+//    public Simulation(TownFactory tf, RailwayFactory rf,ConsoleView view,DotFileWriter writer, TownsInput ti,Logger logger) {
+//        this.townFactory = tf;
+//        this.railwayFactory = rf;
+//        this.view = view;
+//        this.writer = writer;
+//        this.townsInput = ti;
+//        this.logger = logger;
+//    }
+//
 //    public void run() {
 //        logger.info("Simulation started.");
 //        try {
-//            while (System.in.available() == 0) {
+//            while (true) {
+//                try {
+//                    if (System.in.available() != 0) {
+//                        break;
+//                    }
+//                } catch (IOException e) {
+//                    logger.log(Level.SEVERE, "IO error in simulation loop", e);
+//                    break;
+//                }
 //                day++;
 //                logger.info(() -> "Day " + day);
 //                List<String> messages = new ArrayList<>();
@@ -58,7 +66,7 @@ public class Simulation {
 //                        logger.log(Level.WARNING, () -> "Simulation error on message: '" + finalMsg + "': " + se.getMessage());
 //                    }
 //                }
-//                processDay(messages);
+//                processDay();
 //                view.display(day, messages, towns.values());
 //                writer.writeDotFile(towns, railways);
 //                try {
@@ -68,12 +76,219 @@ public class Simulation {
 //                    throw new AssertionError(e);
 //                }
 //            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
 //        } finally {
+//            // Remove all observers for clean-up
+//            for (Town t : towns.values()) {
+//                for (Observer<Town> obs : townObservers) {
+//                    t.removeObserver(obs);
+//                }
+//            }
+//            for (Railway r : railways) {
+//                for (Observer<Railway> obs : railwayObservers) {
+//                    r.removeObserver(obs);
+//                }
+//            }
 //            logger.info("Simulation ended.");
 //        }
 //    }
+//
+//    private void processMessage(String msg, List<String> messages) throws SimulationException {
+//        if (msg == null || msg.trim().isEmpty()) {
+//            logger.warning("Skipped null or empty message.");
+//            return;
+//        }
+//        String[] parts = msg.trim().split("\\s+");
+//        if (parts.length < 3) {
+//            logger.warning(()->"Skipped invalid message (not enough parts): '" + msg + "'");
+//            return;
+//        }
+//
+//        String type = parts[0];
+//        String townA = parts[1];
+//        String arg = parts[2];
+//
+//        try {
+//            switch (type) {
+//                case "town-founding":
+//                    int population;
+//                    try {
+//                        population = Integer.parseInt(arg);
+//                    } catch (NumberFormatException nfe) {
+//                        logger.warning(()->"Skipped town-founding (invalid population): '" + msg + "'");
+//                        return;
+//                    }
+//                    if (towns.containsKey(townA)) {
+//                        logger.warning(()->"Duplicate town-founding for " + townA + " skipped.");
+//                        return;
+//                    } else {
+//
+//                        Town t = townFactory.createTown(townA, population);
+//                        t.addObserver(new TownObserver());
+//                        towns.put(townA, t);
+//                        logger.info(()->"Town founded: " + townA + " with population " + population);
+//                    }
+//                    break;
+//                case "town-population":
+//                    int pop;
+//                    try {
+//                        pop = Integer.parseInt(arg);
+//                    } catch (NumberFormatException nfe) {
+//                        logger.warning(()->"Skipped town-population (invalid population): '" + msg + "'");
+//                        return;
+//                    }
+//                    Town t = towns.get(townA);
+//                    if (t != null) {
+//                        t.setPopulation(pop);
+//                        logger.info(()->"Population updated: " + townA + " = " + pop);
+//                    } else {
+//                        logger.warning(()->"Population update for non-existent town: " + townA);
+//                        return;
+//                    }
+//                    break;
+//                case "railway-construction":
+//                    Town ta = towns.get(townA);
+//                    Town tb = towns.get(arg);
+//                    if (ta != null && tb != null && !findRailway(ta, tb)) {
+//                        Railway r = railwayFactory.createSingleTrack(ta, tb);
+//                        r.addObserver(new RailwayObserver());
+//                        railways.add(r);
+//                        ta.addRailway(r);
+//                        tb.addRailway(r);
+//                        logger.info(()->"Railway construction started between " + townA + " and " + arg);
+//                    } else {
+//                        logger.warning(()->"Railway construction skipped (invalid towns or already exists): " + msg);
+//                        return;
+//                    }
+//                    break;
+//                case "railway-duplication":
+//                    Town ta2 = towns.get(townA);
+//                    Town tb2 = towns.get(arg);
+//                    Railway existing = getRailway(ta2, tb2);
+//                    if (existing != null && existing.getState() instanceof SingleTrackCompleted) {
+//                        existing.setState(new DualTrackUnderConstruction());
+//                        existing.setConstructionDaysRemaining(5); // Reset for 5 days of upgrade
+//                        messages.add(msg);
+//                        logger.info(()->"Railway duplication started between " + townA + " and " + arg);
+//                    } else if (existing == null) {
+//                        logger.warning(()->"Railway duplication skipped (no railway exists between " + townA + " and " + arg + "): " + msg);
+//                        throw new SimulationException("Attempted duplication on missing railway between " + townA + " and " + arg);
+//                    } else if (!(existing.getState() instanceof SingleTrackCompleted)) {
+//                        logger.warning(()->"Railway duplication skipped (not a single-track or already upgrading): " + msg);
+//                        throw new SimulationException("Attempted duplication on non-single-track railway between " + townA + " and " + arg);
+//                    }
+//                    break;
+//                default:
+//                    logger.warning(()->"Unknown message type skipped: '" + msg + "'");
+//                    return;
+//            }
+//            messages.add(msg);
+//        } catch (SimulationException se) {
+//            throw se;
+//        }
+////        catch (Exception ex) {
+////            logger.log(Level.SEVERE, ex, ()->"Error processing message: '" + msg + "'");
+////            throw new SimulationException("Severe error processing message: '" + msg + "'", ex);
+////        }
+//    }
+//
+//    private boolean findRailway(Town a, Town b) {
+//        return getRailway(a, b) != null;
+//    }
+//
+//    private Railway getRailway(Town a, Town b) {
+//        if (a == null || b == null) {
+//            return null;
+//        }
+//        for (Railway r : railways) {
+//            if ((r.getTownA().equals(a) && r.getTownB().equals(b)) ||
+//                    (r.getTownA().equals(b) && r.getTownB().equals(a))) {
+//                return r;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    private void processDay() {
+//        // 1. Each town produces goods
+//        for (Town t : towns.values()) {
+//            int produced = t.getPopulation();
+//            t.addGoods(produced);
+//            t.resetGoodsTransportedToday();
+//        }
+//
+//        // 2. Railways: progress construction, flip direction, state transitions
+//        for (Railway r : railways) {
+//            if (r.isUnderConstruction()) {
+//                r.decrementConstructionDays();
+//                if (r.getConstructionDaysRemaining() == 0) {
+//                    if (r.getState() instanceof SingleTrackUnderConstruction) {
+//                        r.setState(new SingleTrackCompleted());
+//                    }
+//                    else if (r.getState() instanceof DualTrackUnderConstruction) {
+//                        r.setState(new DualTrackCompleted());
+//                    }
+//                    logger.info(()->"Railway construction/upgrade completed between: " + r.getTownA().getName() + " and " + r.getTownB().getName());
+//                }
+//            } else if (r.isSingleTrack()) {
+//                r.flipDirection();
+//            }
+//        }
+//
+//        // 3. Transport goods via railways
+//        for (Railway r : railways) {
+//            if (!r.canTransport() || r.isUnderConstruction()) {
+//                continue;
+//            }
+//            if (r.isSingleTrack()) {
+//                Town from = r.isDirectionAB() ? r.getTownA() : r.getTownB();
+//                Town to = r.isDirectionAB() ? r.getTownB() : r.getTownA();
+//                int amount = Math.min(100, from.getGoodsStockpile());
+//                from.removeGoods(amount);
+//                from.addGoodsTransportedToday(amount);
+//                if (amount > 0) {
+//                    logger.fine(()->"Single-track transport: " + amount + " goods from " + from.getName() + " to " + to.getName());
+//                }
+//            } else if (r.isDualTrack()) {
+//                Town a = r.getTownA(), b = r.getTownB();
+//                int a2b = Math.min(100, a.getGoodsStockpile());
+//                int b2a = Math.min(100, b.getGoodsStockpile());
+//                a.removeGoods(a2b);
+//                b.removeGoods(b2a);
+//                a.addGoodsTransportedToday(a2b);
+//                b.addGoodsTransportedToday(b2a);
+//                if (a2b > 0) {
+//                    logger.fine(()->"Dual-track transport: " + a2b + " goods from " + a.getName() + " to " + b.getName());
+//                }
+//                if (b2a > 0) {
+//                    logger.fine(()->"Dual-track transport: " + b2a + " goods from " + b.getName() + " to " + a.getName());
+//                }
+//            }
+//        }
+//    }
+//}
+public class Simulation {
+    private final Map<String, Town> towns = new HashMap<>();
+    private final List<Railway> railways = new ArrayList<>();
+    private final TownFactory townFactory;
+    private final RailwayFactory railwayFactory;
+    private final ConsoleView view;
+    private final DotFileWriter writer;
+    private final TownsInput townsInput;
+    private final Logger logger;
+    private int day = 0;
+
+    private final List<TownObserver> townObservers = new ArrayList<>();
+    private final List<RailwayObserver> railwayObservers = new ArrayList<>();
+
+    public Simulation(TownFactory tf, RailwayFactory rf, ConsoleView view, DotFileWriter writer, TownsInput ti, Logger logger) {
+        this.townFactory = tf;
+        this.railwayFactory = rf;
+        this.view = view;
+        this.writer = writer;
+        this.townsInput = ti;
+        this.logger = logger;
+    }
+
     public void run() {
         logger.info("Simulation started.");
         try {
@@ -97,10 +312,6 @@ public class Simulation {
                         String finalMsg = msg;
                         logger.log(Level.WARNING, () -> "Simulation error on message: '" + finalMsg + "': " + se.getMessage());
                     }
-//                    catch (Exception ex) {
-//                        String finalMsg1 = msg;
-//                        logger.log(Level.SEVERE, ex, () -> "Unexpected error when processing message: '" + finalMsg1 + "'");
-//                    }
                 }
                 processDay();
                 view.display(day, messages, towns.values());
@@ -113,7 +324,18 @@ public class Simulation {
                 }
             }
         } finally {
-            logger.info("Simulation ended.");
+            // Remove all observers for cleanup
+            for (Town t : towns.values()) {
+                for (TownObserver obs : townObservers) {
+                    t.removeObserver(obs);
+                }
+            }
+            for (Railway r : railways) {
+                for (RailwayObserver obs : railwayObservers) {
+                    r.removeObserver(obs);
+                }
+            }
+            logger.info("Simulation ended and all observers removed.");
         }
     }
 
@@ -124,7 +346,7 @@ public class Simulation {
         }
         String[] parts = msg.trim().split("\\s+");
         if (parts.length < 3) {
-            logger.warning(()->"Skipped invalid message (not enough parts): '" + msg + "'");
+            logger.warning(() -> "Skipped invalid message (not enough parts): '" + msg + "'");
             return;
         }
 
@@ -139,18 +361,19 @@ public class Simulation {
                     try {
                         population = Integer.parseInt(arg);
                     } catch (NumberFormatException nfe) {
-                        logger.warning(()->"Skipped town-founding (invalid population): '" + msg + "'");
+                        logger.warning(() -> "Skipped town-founding (invalid population): '" + msg + "'");
                         return;
                     }
                     if (towns.containsKey(townA)) {
-                        logger.warning(()->"Duplicate town-founding for " + townA + " skipped.");
+                        logger.warning(() -> "Duplicate town-founding for " + townA + " skipped.");
                         return;
                     } else {
-
                         Town t = townFactory.createTown(townA, population);
-                        t.addObserver(new TownObserver());
+                        TownObserver obs = new TownObserver();
+                        t.addObserver(obs);
+                        townObservers.add(obs);
                         towns.put(townA, t);
-                        logger.info(()->"Town founded: " + townA + " with population " + population);
+                        logger.info(() -> "Town founded: " + townA + " with population " + population);
                     }
                     break;
                 case "town-population":
@@ -158,15 +381,15 @@ public class Simulation {
                     try {
                         pop = Integer.parseInt(arg);
                     } catch (NumberFormatException nfe) {
-                        logger.warning(()->"Skipped town-population (invalid population): '" + msg + "'");
+                        logger.warning(() -> "Skipped town-population (invalid population): '" + msg + "'");
                         return;
                     }
                     Town t = towns.get(townA);
                     if (t != null) {
                         t.setPopulation(pop);
-                        logger.info(()->"Population updated: " + townA + " = " + pop);
+                        logger.info(() -> "Population updated: " + townA + " = " + pop);
                     } else {
-                        logger.warning(()->"Population update for non-existent town: " + townA);
+                        logger.warning(() -> "Population update for non-existent town: " + townA);
                         return;
                     }
                     break;
@@ -175,13 +398,15 @@ public class Simulation {
                     Town tb = towns.get(arg);
                     if (ta != null && tb != null && !findRailway(ta, tb)) {
                         Railway r = railwayFactory.createSingleTrack(ta, tb);
-                        r.addObserver(new RailwayObserver());
+                        RailwayObserver obs = new RailwayObserver();
+                        r.addObserver(obs);
+                        railwayObservers.add(obs);
                         railways.add(r);
                         ta.addRailway(r);
                         tb.addRailway(r);
-                        logger.info(()->"Railway construction started between " + townA + " and " + arg);
+                        logger.info(() -> "Railway construction started between " + townA + " and " + arg);
                     } else {
-                        logger.warning(()->"Railway construction skipped (invalid towns or already exists): " + msg);
+                        logger.warning(() -> "Railway construction skipped (invalid towns or already exists): " + msg);
                         return;
                     }
                     break;
@@ -193,27 +418,23 @@ public class Simulation {
                         existing.setState(new DualTrackUnderConstruction());
                         existing.setConstructionDaysRemaining(5); // Reset for 5 days of upgrade
                         messages.add(msg);
-                        logger.info(()->"Railway duplication started between " + townA + " and " + arg);
+                        logger.info(() -> "Railway duplication started between " + townA + " and " + arg);
                     } else if (existing == null) {
-                        logger.warning(()->"Railway duplication skipped (no railway exists between " + townA + " and " + arg + "): " + msg);
+                        logger.warning(() -> "Railway duplication skipped (no railway exists between " + townA + " and " + arg + "): " + msg);
                         throw new SimulationException("Attempted duplication on missing railway between " + townA + " and " + arg);
                     } else if (!(existing.getState() instanceof SingleTrackCompleted)) {
-                        logger.warning(()->"Railway duplication skipped (not a single-track or already upgrading): " + msg);
+                        logger.warning(() -> "Railway duplication skipped (not a single-track or already upgrading): " + msg);
                         throw new SimulationException("Attempted duplication on non-single-track railway between " + townA + " and " + arg);
                     }
                     break;
                 default:
-                    logger.warning(()->"Unknown message type skipped: '" + msg + "'");
+                    logger.warning(() -> "Unknown message type skipped: '" + msg + "'");
                     return;
             }
             messages.add(msg);
         } catch (SimulationException se) {
             throw se;
         }
-//        catch (Exception ex) {
-//            logger.log(Level.SEVERE, ex, ()->"Error processing message: '" + msg + "'");
-//            throw new SimulationException("Severe error processing message: '" + msg + "'", ex);
-//        }
     }
 
     private boolean findRailway(Town a, Town b) {
@@ -248,11 +469,10 @@ public class Simulation {
                 if (r.getConstructionDaysRemaining() == 0) {
                     if (r.getState() instanceof SingleTrackUnderConstruction) {
                         r.setState(new SingleTrackCompleted());
-                    }
-                    else if (r.getState() instanceof DualTrackUnderConstruction) {
+                    } else if (r.getState() instanceof DualTrackUnderConstruction) {
                         r.setState(new DualTrackCompleted());
                     }
-                    logger.info(()->"Railway construction/upgrade completed between: " + r.getTownA().getName() + " and " + r.getTownB().getName());
+                    logger.info(() -> "Railway construction/upgrade completed between: " + r.getTownA().getName() + " and " + r.getTownB().getName());
                 }
             } else if (r.isSingleTrack()) {
                 r.flipDirection();
@@ -271,7 +491,7 @@ public class Simulation {
                 from.removeGoods(amount);
                 from.addGoodsTransportedToday(amount);
                 if (amount > 0) {
-                    logger.fine(()->"Single-track transport: " + amount + " goods from " + from.getName() + " to " + to.getName());
+                    logger.fine(() -> "Single-track transport: " + amount + " goods from " + from.getName() + " to " + to.getName());
                 }
             } else if (r.isDualTrack()) {
                 Town a = r.getTownA(), b = r.getTownB();
@@ -282,14 +502,13 @@ public class Simulation {
                 a.addGoodsTransportedToday(a2b);
                 b.addGoodsTransportedToday(b2a);
                 if (a2b > 0) {
-                    logger.fine(()->"Dual-track transport: " + a2b + " goods from " + a.getName() + " to " + b.getName());
+                    logger.fine(() -> "Dual-track transport: " + a2b + " goods from " + a.getName() + " to " + b.getName());
                 }
                 if (b2a > 0) {
-                    logger.fine(()->"Dual-track transport: " + b2a + " goods from " + b.getName() + " to " + a.getName());
+                    logger.fine(() -> "Dual-track transport: " + b2a + " goods from " + b.getName() + " to " + a.getName());
                 }
             }
         }
     }
 }
-
 

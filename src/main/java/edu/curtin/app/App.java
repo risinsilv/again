@@ -16,17 +16,15 @@ import java.io.IOException;
  * Entry point into the application. To change the package, and/or the name of this class, make
  * sure to update the 'mainClass = ...' line in build.gradle.
  */
-public class App
-{
-    public static void main(String[] args)
-    {
+public class App {
+    public static void main(String[] args) {
         TownFactory townFactory = new TownFactory();
         RailwayFactory railwayFactory = new RailwayFactory();
         TownsInput townsInput = new TownsInput();
         ConsoleView consoleView = new ConsoleView();
         DotFileWriter writer = new DotFileWriter();
 
-        Simulation sim = new Simulation(townFactory, railwayFactory,consoleView,writer, townsInput, LoggerSetup.getLogger());
+        Simulation sim = new Simulation(townFactory, railwayFactory, consoleView, writer, townsInput, LoggerSetup.getLogger());
         sim.run();
     }
 }
