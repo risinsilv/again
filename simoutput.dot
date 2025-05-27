@@ -1,18 +1,8 @@
 graph Towns {
-    Ardford
-    Oddholm
-    Ibscombe
-    Upper_Crimpstoke
-    Charlow
-    Everworth
-    Charlow -- Ardford 
-    Ibscombe -- Charlow 
-    Ardford -- Everworth 
-    Ibscombe -- Ardford [color="black:black"]
-    Upper_Crimpstoke -- Ibscombe [color="black:black"]
-    Charlow -- Everworth [color="black:black"]
-    Upper_Crimpstoke -- Ardford [color="black:black"]
-    Upper_Crimpstoke -- Everworth 
-    Oddholm -- Ibscombe [style="dashed"]
-    Everworth -- Ibscombe [style="dashed"]
+    Chetcote
+    Water_Newleigh
+    Wenhurst
+    Pardon
+    Wenhurst -- Pardon 
+    Pardon -- Chetcote 
 }

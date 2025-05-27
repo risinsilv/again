@@ -1418,3 +1418,291 @@ May 27, 2025 1:09:15 PM edu.curtin.app.services.Simulation processDay
 FINE: Single-track transport: 100 goods from Everworth to Upper_Crimpstoke
 May 27, 2025 1:09:16 PM edu.curtin.app.services.Simulation run
 INFO: Simulation ended.
+May 27, 2025 3:59:37 PM edu.curtin.app.services.Simulation run
+INFO: Simulation started.
+May 27, 2025 3:59:37 PM edu.curtin.app.services.Simulation run
+INFO: Day 1
+May 27, 2025 3:59:38 PM edu.curtin.app.services.Simulation run
+INFO: Day 2
+May 27, 2025 3:59:38 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Creech_Hobbesbridge with population 692
+May 27, 2025 3:59:38 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Much_Catterstow with population 761
+May 27, 2025 3:59:38 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Mumpwell with population 733
+May 27, 2025 3:59:39 PM edu.curtin.app.services.Simulation run
+INFO: Day 3
+May 27, 2025 3:59:39 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Mumpwell and Much_Catterstow
+May 27, 2025 3:59:40 PM edu.curtin.app.services.Simulation run
+INFO: Day 4
+May 27, 2025 3:59:40 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Creech_Hobbesbridge = 736
+May 27, 2025 3:59:41 PM edu.curtin.app.services.Simulation run
+INFO: Day 5
+May 27, 2025 3:59:41 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Creech_Hobbesbridge = 697
+May 27, 2025 3:59:41 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Much_Catterstow = 688
+May 27, 2025 3:59:42 PM edu.curtin.app.services.Simulation run
+INFO: Day 6
+May 27, 2025 3:59:42 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Much_Catterstow Mumpwell
+May 27, 2025 3:59:42 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Much_Catterstow Mumpwell': Attempted duplication on non-single-track railway between Much_Catterstow and Mumpwell
+May 27, 2025 3:59:43 PM edu.curtin.app.services.Simulation run
+INFO: Day 7
+May 27, 2025 3:59:43 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Mumpwell and Much_Catterstow
+May 27, 2025 3:59:43 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:44 PM edu.curtin.app.services.Simulation run
+INFO: Day 8
+May 27, 2025 3:59:44 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Low_Motherley with population 379
+May 27, 2025 3:59:44 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:45 PM edu.curtin.app.services.Simulation run
+INFO: Day 9
+May 27, 2025 3:59:45 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:46 PM edu.curtin.app.services.Simulation run
+INFO: Day 10
+May 27, 2025 3:59:46 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Creech_Hobbesbridge and Mumpwell
+May 27, 2025 3:59:46 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:47 PM edu.curtin.app.services.Simulation run
+INFO: Day 11
+May 27, 2025 3:59:47 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:48 PM edu.curtin.app.services.Simulation run
+INFO: Day 12
+May 27, 2025 3:59:48 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Chipping_Perbury with population 237
+May 27, 2025 3:59:48 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Creech_Hobbesbridge = 686
+May 27, 2025 3:59:48 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:49 PM edu.curtin.app.services.Simulation run
+INFO: Day 13
+May 27, 2025 3:59:49 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Mumpwell Creech_Hobbesbridge
+May 27, 2025 3:59:49 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Mumpwell Creech_Hobbesbridge': Attempted duplication on non-single-track railway between Mumpwell and Creech_Hobbesbridge
+May 27, 2025 3:59:49 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Low_Motherley = 413
+May 27, 2025 3:59:49 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation run
+INFO: Day 14
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Chipping_Perbury = 274
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Creech_Hobbesbridge and Low_Motherley
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Creech_Hobbesbridge and Mumpwell
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:50 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 3:59:51 PM edu.curtin.app.services.Simulation run
+INFO: Day 15
+May 27, 2025 3:59:51 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Chipping_Perbury and Low_Motherley
+May 27, 2025 3:59:51 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:51 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Creech_Hobbesbridge
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation run
+INFO: Day 16
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Low_Motherley Chipping_Perbury
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Low_Motherley Chipping_Perbury': Attempted duplication on non-single-track railway between Low_Motherley and Chipping_Perbury
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Creech_Hobbesbridge Low_Motherley
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Creech_Hobbesbridge Low_Motherley': Attempted duplication on non-single-track railway between Creech_Hobbesbridge and Low_Motherley
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:52 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 3:59:53 PM edu.curtin.app.services.Simulation run
+INFO: Day 17
+May 27, 2025 3:59:53 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Chipping_Perbury = 249
+May 27, 2025 3:59:53 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Much_Catterstow = 696
+May 27, 2025 3:59:53 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:53 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Creech_Hobbesbridge
+May 27, 2025 3:59:54 PM edu.curtin.app.services.Simulation run
+INFO: Day 18
+May 27, 2025 3:59:54 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Creech_Hobbesbridge and Low_Motherley
+May 27, 2025 3:59:54 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:54 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 3:59:54 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Low_Motherley
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation run
+INFO: Day 19
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Mumpwell = 867
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Chipping_Perbury and Low_Motherley
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Creech_Hobbesbridge
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Creech_Hobbesbridge
+May 27, 2025 3:59:55 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Chipping_Perbury to Low_Motherley
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation run
+INFO: Day 20
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Much_Catterstow = 715
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Low_Motherley
+May 27, 2025 3:59:56 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Chipping_Perbury
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation run
+INFO: Day 21
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Pemthrop with population 307
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Low_Motherley and Mumpwell
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Creech_Hobbesbridge
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Creech_Hobbesbridge
+May 27, 2025 3:59:57 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Chipping_Perbury to Low_Motherley
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation run
+INFO: Day 22
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Pemthrop = 302
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Low_Motherley
+May 27, 2025 3:59:58 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Chipping_Perbury
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation run
+INFO: Day 23
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Mumpwell Low_Motherley
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Mumpwell Low_Motherley': Attempted duplication on non-single-track railway between Mumpwell and Low_Motherley
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Much_Catterstow
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Mumpwell to Creech_Hobbesbridge
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Creech_Hobbesbridge
+May 27, 2025 3:59:59 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Chipping_Perbury to Low_Motherley
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation run
+INFO: Day 24
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Mumpwell = 955
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Chipping_Perbury = 227
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Much_Catterstow to Mumpwell
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Mumpwell
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Creech_Hobbesbridge to Low_Motherley
+May 27, 2025 4:00:00 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Low_Motherley to Chipping_Perbury
+May 27, 2025 4:00:01 PM edu.curtin.app.services.Simulation run
+INFO: Simulation ended.
+May 27, 2025 5:07:00 PM edu.curtin.app.services.Simulation run
+INFO: Simulation started.
+May 27, 2025 5:07:00 PM edu.curtin.app.services.Simulation run
+INFO: Day 1
+May 27, 2025 5:07:01 PM edu.curtin.app.services.Simulation run
+INFO: Day 2
+May 27, 2025 5:07:01 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Wenhurst with population 701
+May 27, 2025 5:07:01 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Pardon with population 570
+May 27, 2025 5:07:02 PM edu.curtin.app.services.Simulation run
+INFO: Day 3
+May 27, 2025 5:07:03 PM edu.curtin.app.services.Simulation run
+INFO: Day 4
+May 27, 2025 5:07:04 PM edu.curtin.app.services.Simulation run
+INFO: Day 5
+May 27, 2025 5:07:04 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Wenhurst = 685
+May 27, 2025 5:07:05 PM edu.curtin.app.services.Simulation run
+INFO: Day 6
+May 27, 2025 5:07:05 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Chetcote with population 723
+May 27, 2025 5:07:05 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Unknown message type skipped: 'Chetcote -151 /D8P)3tCNdmCQ}'
+May 27, 2025 5:07:05 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Wenhurst and Pardon
+May 27, 2025 5:07:06 PM edu.curtin.app.services.Simulation run
+INFO: Day 7
+May 27, 2025 5:07:06 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Pardon = 608
+May 27, 2025 5:07:06 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Chetcote = 828
+May 27, 2025 5:07:07 PM edu.curtin.app.services.Simulation run
+INFO: Day 8
+May 27, 2025 5:07:08 PM edu.curtin.app.services.Simulation run
+INFO: Day 9
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation run
+INFO: Day 10
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Wenhurst = 756
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processMessage
+WARNING: Railway duplication skipped (not a single-track or already upgrading): railway-duplication Pardon Wenhurst
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation run
+WARNING: Simulation error on message: 'railway-duplication Pardon Wenhurst': Attempted duplication on non-single-track railway between Pardon and Wenhurst
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processMessage
+INFO: Town founded: Water_Newleigh with population 81
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processMessage
+INFO: Railway construction started between Pardon and Chetcote
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Wenhurst and Pardon
+May 27, 2025 5:07:09 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Wenhurst to Pardon
+May 27, 2025 5:07:10 PM edu.curtin.app.services.Simulation run
+INFO: Day 11
+May 27, 2025 5:07:10 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Pardon to Wenhurst
+May 27, 2025 5:07:11 PM edu.curtin.app.services.Simulation run
+INFO: Day 12
+May 27, 2025 5:07:11 PM edu.curtin.app.services.Simulation processMessage
+INFO: Population updated: Wenhurst = 825
+May 27, 2025 5:07:11 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Wenhurst to Pardon
+May 27, 2025 5:07:12 PM edu.curtin.app.services.Simulation run
+INFO: Day 13
+May 27, 2025 5:07:12 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Pardon to Wenhurst
+May 27, 2025 5:07:13 PM edu.curtin.app.services.Simulation run
+INFO: Day 14
+May 27, 2025 5:07:13 PM edu.curtin.app.services.Simulation processDay
+INFO: Railway construction/upgrade completed between: Pardon and Chetcote
+May 27, 2025 5:07:13 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Wenhurst to Pardon
+May 27, 2025 5:07:13 PM edu.curtin.app.services.Simulation processDay
+FINE: Single-track transport: 100 goods from Pardon to Chetcote
+May 27, 2025 5:07:14 PM edu.curtin.app.services.Simulation run
+INFO: Simulation ended.

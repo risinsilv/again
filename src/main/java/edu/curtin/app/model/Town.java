@@ -45,6 +45,8 @@ public class Town implements Subject<Town> {
     public void removeObserver(Observer<Town> o) { observers.remove(o); }
     @Override
     public void notifyObservers() {
-        for (Observer<Town> o : observers) o.update(this);
+        for (Observer<Town> o : observers){
+            o.update(this);
+        }
     }
 }

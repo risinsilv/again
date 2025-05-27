@@ -31,7 +31,7 @@ public class Railway implements Subject<Railway> {
     public RailwayState getState() { return state; }
     public void setState(RailwayState state) { this.state = state; }
     public int getConstructionDaysRemaining() { return constructionDaysRemaining; }
-    public void decrementConstructionDays() { if (constructionDaysRemaining > 0) constructionDaysRemaining--; }
+    public void decrementConstructionDays() { if (constructionDaysRemaining > 0) {constructionDaysRemaining--;} }
     public boolean isUnderConstruction() { return constructionDaysRemaining > 0; }
 //    public boolean isDualTrack() { return state.isDual(); }
 //    public boolean isSingleTrack() { return state.isSingle(); }
@@ -62,6 +62,8 @@ public class Railway implements Subject<Railway> {
 
     @Override
     public void notifyObservers() {
-        for (Observer<Railway> o : observers) o.update(this);
+        for (Observer<Railway> o : observers){
+            o.update(this);
+        }
     }
 }
