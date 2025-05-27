@@ -4,6 +4,7 @@ import edu.curtin.app.factory.RailwayFactory;
 import edu.curtin.app.factory.TownFactory;
 import edu.curtin.app.model.Railway;
 import edu.curtin.app.model.Town;
+import edu.curtin.app.observer.RailwayObserver;
 import edu.curtin.app.observer.TownObserver;
 import edu.curtin.app.output.OutputService;
 import edu.curtin.app.state.DualTrackCompleted;
@@ -80,6 +81,7 @@ public class Simulation {
                 Town tb = towns.get(arg);
                 if (ta != null && tb != null && !findRailway(ta, tb)) {
                     Railway r = railwayFactory.createSingleTrack(ta, tb);
+                    r.addObserver(new RailwayObserver());
                     railways.add(r);
                     ta.addRailway(r);
                     tb.addRailway(r);
@@ -89,15 +91,14 @@ public class Simulation {
                 Town ta2 = towns.get(townA);
                 Town tb2 = towns.get(arg);
                 Railway existing = getRailway(ta2, tb2);
-                // Only allow duplication if there is an existing, completed single-track railway
                 if (existing != null
                         && existing.getState() instanceof SingleTrackCompleted) {
                     existing.setState(new DualTrackUnderConstruction());
-                    existing.decrementConstructionDays(); // start construction
+                    existing.setConstructionDaysRemaining(5); // Reset for 5 days of upgrade
                     messages.add(msg);
                 }
-                // else: ignore duplication request!
                 break;
+
             default: return;
         }
         messages.add(msg);

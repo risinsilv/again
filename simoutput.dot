@@ -1,10 +1,12 @@
 graph Towns {
-    Drowsstock
-    Much_Gallmond
-    Bury_Dentcester
-    Kingston_Grosham
-    Notkirk
-    Drowsstock -- Much_Gallmond [style="dashed",color="black:black"]
-    Notkirk -- Much_Gallmond 
-    Bury_Dentcester -- Notkirk [style="dashed"]
+    Upper_Gosmond
+    Creech_Hinterstock
+    Ash_Wetchbrook
+    East_Barport
+    Sutton_Ramschester
+    Wroughtgrove
+    Creech_Hinterstock -- Wroughtgrove 
+    Wroughtgrove -- Ash_Wetchbrook 
+    Creech_Hinterstock -- Upper_Gosmond 
+    Ash_Wetchbrook -- Creech_Hinterstock 
 }

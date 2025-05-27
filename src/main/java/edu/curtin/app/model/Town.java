@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Town implements Subject {
+public class Town implements Subject<Town> {
     private final String name;
     private int population;
     private int goodsStockpile;
     private int goodsTransportedToday;
     private final Set<Railway> railways = new HashSet<>();
-    private final List<Observer> observers = new ArrayList<>();
+    private final List<Observer<Town>> observers = new ArrayList<>();
 
     public Town(String name, int population) {
         this.name = name;
@@ -38,13 +38,13 @@ public class Town implements Subject {
     public void resetGoodsTransportedToday() { goodsTransportedToday = 0; }
     public void addGoodsTransportedToday(int amount) { goodsTransportedToday += amount; }
 
-    // Observer pattern
+
     @Override
-    public void addObserver(Observer o) { observers.add(o); }
+    public void addObserver(Observer<Town> o) { observers.add(o); }
     @Override
-    public void removeObserver(Observer o) { observers.remove(o); }
+    public void removeObserver(Observer<Town> o) { observers.remove(o); }
     @Override
     public void notifyObservers() {
-        for (Observer o : observers) o.update(this);
+        for (Observer<Town> o : observers) o.update(this);
     }
 }

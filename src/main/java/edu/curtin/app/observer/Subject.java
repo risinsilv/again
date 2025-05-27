@@ -1,7 +1,7 @@
 package edu.curtin.app.observer;
 
-public interface Subject {
-    void addObserver(Observer o);
-    void removeObserver(Observer o);
+public interface Subject<T> {
+    void addObserver(Observer<T> o);
+    void removeObserver(Observer<T> o);
     void notifyObservers();
 }
