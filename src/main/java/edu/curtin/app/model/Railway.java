@@ -3,6 +3,7 @@ package edu.curtin.app.model;
 import edu.curtin.app.observer.Observer;
 import edu.curtin.app.observer.Subject;
 import edu.curtin.app.state.DualTrackCompleted;
+import edu.curtin.app.state.DualTrackUnderConstruction;
 import edu.curtin.app.state.RailwayState;
 import edu.curtin.app.state.SingleTrackCompleted;
 
@@ -38,7 +39,7 @@ public class Railway implements Subject<Railway> {
     public boolean isDirectionAB() { return directionAB; }
     public void flipDirection() { directionAB = !directionAB; }
     public boolean isSingleTrack() {
-        return state instanceof SingleTrackCompleted;
+        return state instanceof SingleTrackCompleted || state instanceof DualTrackUnderConstruction;
     }
 
     public boolean isDualTrack() {

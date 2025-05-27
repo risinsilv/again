@@ -1,12 +1,18 @@
 graph Towns {
-    Upper_Gosmond
-    Creech_Hinterstock
-    Ash_Wetchbrook
-    East_Barport
-    Sutton_Ramschester
-    Wroughtgrove
-    Creech_Hinterstock -- Wroughtgrove 
-    Wroughtgrove -- Ash_Wetchbrook 
-    Creech_Hinterstock -- Upper_Gosmond 
-    Ash_Wetchbrook -- Creech_Hinterstock 
+    Ardford
+    Oddholm
+    Ibscombe
+    Upper_Crimpstoke
+    Charlow
+    Everworth
+    Charlow -- Ardford 
+    Ibscombe -- Charlow 
+    Ardford -- Everworth 
+    Ibscombe -- Ardford [color="black:black"]
+    Upper_Crimpstoke -- Ibscombe [color="black:black"]
+    Charlow -- Everworth [color="black:black"]
+    Upper_Crimpstoke -- Ardford [color="black:black"]
+    Upper_Crimpstoke -- Everworth 
+    Oddholm -- Ibscombe [style="dashed"]
+    Everworth -- Ibscombe [style="dashed"]
 }

@@ -2,6 +2,7 @@ package edu.curtin.app;
 
 import edu.curtin.app.factory.RailwayFactory;
 import edu.curtin.app.factory.TownFactory;
+import edu.curtin.app.output.LoggerSetup;
 import edu.curtin.app.output.OutputService;
 import edu.curtin.app.services.Simulation;
 import edu.curtin.app.services.TownsInput;
@@ -21,11 +22,7 @@ public class App
         OutputService outputService = new OutputService();
         TownsInput townsInput = new TownsInput();
 
-        Simulation sim = new Simulation(townFactory, railwayFactory, outputService, townsInput);
-        try {
-            sim.run();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Simulation sim = new Simulation(townFactory, railwayFactory, outputService, townsInput, LoggerSetup.getLogger());
+        sim.run();
     }
 }

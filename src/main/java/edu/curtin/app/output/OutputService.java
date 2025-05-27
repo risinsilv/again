@@ -16,6 +16,7 @@ public class OutputService {
         System.out.println("---");
         System.out.println("Day " + day + ":");
         for (String msg : messages) System.out.println(msg);
+        System.out.println("\n");
         for (Town t : towns) {
             System.out.printf("%s p:%d rs:%d rd:%d gs:%d gt:%d\n",
                     t.getName(), t.getPopulation(), countSingle(t), countDual(t),
@@ -25,7 +26,7 @@ public class OutputService {
 
     private int countSingle(Town t) {
         return (int) t.getRailways().stream()
-                .filter(r -> r.isSingleTrack() && !r.isUnderConstruction())
+                .filter(r -> r.isSingleTrack())
                 .count();
     }
 
