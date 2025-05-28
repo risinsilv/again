@@ -1,12 +1,8 @@
 graph Towns {
-    Kingston_Otster
-    Budbeth
-    Creech_Dickward
-    East_Sexlade
-    Creech_Dickward -- Budbeth [color="black:black"]
-    Kingston_Otster -- Budbeth [color="black:black"]
-    Creech_Dickward -- Kingston_Otster 
-    Budbeth -- East_Sexlade 
-    Creech_Dickward -- East_Sexlade [style="dashed",color="black:black"]
-    East_Sexlade -- Kingston_Otster 
+    Marsh_Wittdale
+    Old_Chopbrough
+    Mossnor
+    Marsh_Wittdale -- Old_Chopbrough 
+    Mossnor -- Marsh_Wittdale [color="black:black"]
+    Mossnor -- Old_Chopbrough 
 }

@@ -7,7 +7,12 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 /**
- * Utility class to setup and provide a centralized application logger.
+ * ============================================================
+ * | Class Name  : LoggerSetup                               |
+ * | Author      : Risinu Silva                              |
+ * | Date        : 11 April 2025                             |
+ * | Description : Sets up and provides application logger.  |
+ * ============================================================
  */
 public class LoggerSetup
 {

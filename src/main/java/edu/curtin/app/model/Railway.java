@@ -9,7 +9,16 @@ import edu.curtin.app.state.SingleTrackCompleted;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * ============================================================
+ * | Class Name  : Railway                                   |
+ * | Author      : Risinu Silva                              |
+ * | Date        : 11 April 2025                             |
+ * | Description : Represents a railway between two towns,   |
+ * |               tracks construction state, direction, and |
+ * |               supports observer notifications.          |
+ * ============================================================
+ */
 public class Railway implements Subject<Railway> {
     private final Town townA;
     private final Town townB;

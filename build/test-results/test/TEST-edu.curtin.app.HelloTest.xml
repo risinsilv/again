@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.curtin.app.HelloTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-27T11:58:51" hostname="DESKTOP-61AONFI" time="0.032">
+<testsuite name="edu.curtin.app.HelloTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-27T12:32:53" hostname="DESKTOP-61AONFI" time="0.033">
   <properties/>
-  <testcase name="testHello()" classname="edu.curtin.app.HelloTest" time="0.032"/>
+  <testcase name="testHello()" classname="edu.curtin.app.HelloTest" time="0.033"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[May 27, 2025 5:28:51 PM edu.curtin.app.Hello getHello
+  <system-err><![CDATA[May 27, 2025 6:02:53 PM edu.curtin.app.Hello getHello
 INFO: About to return 'Hello world!'
 ]]></system-err>
 </testsuite>

@@ -8,7 +8,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * ============================================================
+ * | Class Name  : DotFileWriter                             |
+ * | Author      : Risinu Silva                              |
+ * | Date        : 11 April 2025                             |
+ * | Description : Writes simulation state to DOT files.     |
+ * ============================================================
+ */
 public class DotFileWriter {
     public void writeDotFile(Map<String, Town> towns, List<Railway> railways) {
         try (PrintWriter writer = new PrintWriter(new File("simoutput.dot"))) {

@@ -7,7 +7,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+/**
+ * ============================================================
+ * | Class Name  : Town                                      |
+ * | Author      : Risinu Silva                              |
+ * | Date        : 11 April 2025                             |
+ * | Description : Represents a town with population, goods, |
+ * |               and associated railways. Supports         |
+ * |               observer pattern for updates.             |
+ * ============================================================
+ */
 public class Town implements Subject<Town> {
     private final String name;
     private int population;
